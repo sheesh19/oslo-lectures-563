@@ -1,1 +1,8 @@
-Second Breakfast,Delicious hobbity meal
+name,description,rating,prep_time,done
+Second Breakfast,Delicious hobbity meal,,,true
+Chef John's Lemon Bars,"An intensely flavored layer of lemon custard atop a crisp, sweet shortbread crust makes these favorite cookies almost like little slices of lemon pie.",,,false
+Banana Bread,V tasty,5,,true
+Lemon-Ricotta Pancakes,"Ricotta cheese adds moisture, lemon zest bright flavor, and the self-rising flour makes Chef John's delicious lemon ricotta pancakes so light they nearly float off the plate.",4.83,,false
+banana bread,delicious,5,10,false
+Pumpkin Ginger Cupcakes,"Delicious, light and fluffy! These taste of Fall, and the crystallized ginger gives then a lovely little zing. Even people who don't like pumpkin love these cupcakes. These disappear as fast as I can set them out!",4.84,20 mins,true
+Cranberry Orange Loaf,Orange juice and zest really emphasize the fruity quality of this cranberry-nut bread.,4.68,15 mins,
