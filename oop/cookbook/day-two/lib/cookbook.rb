@@ -56,6 +56,14 @@ class Cookbook
     end
   end
 
+  # NOTE ABOUT LOAD_CSV:
+
+  # Since we have a hash of attributes when we instantiate our Recipe (the def initialize(attributes = {}) ), we need to have a hash when we create our Recipe.new .
+  # We added headers at the top of our csv && passed the option header_converters: :symbol , which makes the row into a hash when we load it.
+  # Since each row is now a hash from our CSV, we can use row[:done]  to access the value. Our CSV has everything saved as strings, but in our Recipe we need a boolean value. When we run:
+  #    row[:done] = row[:done] == 'true'
+  # we are running a comparison- if the csv value is ‘true’ , we’ll re-write the value of row[:done] as a boolean true and use boolean value when we create the new Recipe instance.
+
 
 
   # def load_csv
