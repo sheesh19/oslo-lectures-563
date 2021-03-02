@@ -11,8 +11,10 @@ class Room
 
   def add_patient(new_patient)
     if full?
+      # raise CapacityError, "Room is full, sorry!"
       puts "Cannot add #{new_patient.name}, to #{self.number}. Room over capacity!"
     else
+      # self == Room Instance
       new_patient.room = self
       @patients << new_patient
     end

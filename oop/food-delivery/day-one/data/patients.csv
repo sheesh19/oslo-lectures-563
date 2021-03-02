@@ -2,3 +2,4 @@ id, name, cured, room_id
 1, Harry, true, 1
 2, Hermione, false, 2
 3, Ron, false, 3
+4, Harry, true, 1
