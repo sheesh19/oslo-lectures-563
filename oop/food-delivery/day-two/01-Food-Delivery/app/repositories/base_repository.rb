@@ -28,6 +28,12 @@ class BaseRepository
     element = set_element(id)
   end
 
+  def destroy(id)
+    element = set_element(id)
+    @elements.delete(element)
+    save_csv
+  end
+
   private
 
   def set_element(id)

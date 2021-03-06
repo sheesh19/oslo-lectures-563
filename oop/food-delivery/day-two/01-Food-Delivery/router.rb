@@ -1,8 +1,9 @@
 class Router
-  def initialize(meals_controller, customers_controller, sessions_controller)
+  def initialize(meals_controller, customers_controller, sessions_controller, orders_controller)
     @meals_controller = meals_controller
     @customers_controller = customers_controller
     @sessions_controller = sessions_controller
+    @orders_controller = orders_controller
     @running = true
   end
 
@@ -46,8 +47,9 @@ class Router
     puts "6. Add new customer"
     puts "7. Edit customer"
     puts "8. Delete customer"
-    puts "9. Logout"
-    puts "10. Exit"
+    puts "9. List all undelivered orders"
+    puts "10. Logout"
+    puts "11. Exit"
     print "> "
   end
 
@@ -67,24 +69,25 @@ class Router
     when 1 then @meals_controller.list
     when 2 then @meals_controller.add
     when 3 then @meals_controller.edit
-    when 4 then puts "TODO: DESTROY"
+    when 4 then @meals_controller.destroy
     when 5 then @customers_controller.list
     when 6 then @customers_controller.add
     when 7 then @customers_controller.edit
-    when 8 then puts "TODO: DESTROY"
-    when 9 then logout!
-    when 10 then stop!
-    else puts "Try again..."
+    when 8 then @customers_controller.destroy
+    when 9 then @orders_controller.list_undelivered_orders
+    when 10 then logout!
+    when 11 then stop!
+    else puts "Invalid number! Try again..."
     end
   end
 
   def rider_action(choice)
     case choice
-    when 1 then puts "TODO: LIST ALL ORDERS"
-    when 2 then puts "TODO: MARK AS DELIVERED"
+    when 1 then @orders_controller.list_my_orders(@current_user)
+    when 2 then puts @orders_controller.mark_as_delivered(@current_user)
     when 3 then logout!
     when 4 then stop!
-    else puts "Try again..."
+    else puts "Invalid number! Try again..."
     end
   end
 

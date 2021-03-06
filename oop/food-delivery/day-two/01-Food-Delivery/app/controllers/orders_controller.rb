@@ -47,6 +47,7 @@ class OrdersController
     order_id = @orders_view.ask_for('completed order id').to_i
     order = my_orders.find { |order| order.id == order_id }
     @order_repository.mark_as_delivered(order)
+    my_undelivered_orders(current_user)
   end
 
   private

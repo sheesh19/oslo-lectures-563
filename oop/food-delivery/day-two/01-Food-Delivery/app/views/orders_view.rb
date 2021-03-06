@@ -8,3 +8,4 @@ class OrdersView < BaseView
     end
   end
 end
+

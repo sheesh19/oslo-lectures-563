@@ -1,11 +1,13 @@
 require 'pry'
+require_relative '../models/order'
+
 class OrderRepository
 
-  def initialize(csv_file, meal_repo, employee_repo, customer_repo)
+  def initialize(csv_file, meals_controller, customers_controller, sessions_controller)
     @csv_file = csv_file
-    @meal_repository = meal_repo
-    @employee_repository = employee_repo
-    @customer_repository = customer_repo
+    @meal_repository = meals_controller
+    @employee_repository = sessions_controller
+    @customer_repository = customers_controller
     @orders = []
     @next_id = 1
     load_csv if File.exist?(@csv_file)
@@ -49,7 +51,6 @@ class OrderRepository
       row[:id] = row[:id].to_i
       row[:delivered] = row[:delivered] == "true"
       # We need to store instances inside our Order.new
-
       row[:meal] = @meal_repository.find(row[:meal_id].to_i)    # "1" => Meal instance
       row[:employee] = @employee_repository.find(row[:employee_id].to_i)
       row[:customer] = @customer_repository.find(row[:customer_id].to_i)

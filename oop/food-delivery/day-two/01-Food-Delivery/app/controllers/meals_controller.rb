@@ -27,6 +27,13 @@ class MealsController
     @meal_repository.edit(id, edit_attribute, updated_value)
   end
 
+  def destroy
+    list_all
+    id = @view.ask_for(:id).to_i
+    @meal_repository.destroy(id)
+    list_all
+  end
+
   private
 
   def list_all
