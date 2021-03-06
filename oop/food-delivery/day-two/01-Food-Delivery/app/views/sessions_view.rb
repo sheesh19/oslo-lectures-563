@@ -1,4 +1,11 @@
 class SessionsView
+
+  def display(employees)
+    employees.each do |employee|
+      puts "#{employee.id} - #{employee.username} | #{employee.role} }"
+    end
+  end
+
   def ask_for(stuff)
     puts "What is the #{stuff}?"
     print "> "
