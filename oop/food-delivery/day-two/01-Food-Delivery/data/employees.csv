@@ -1,0 +1,4 @@
+id,username,password,role
+1,harry,secret,manager
+2,hermione,secret,delivery_guy
+3,ron,secret,delivery_guy
