@@ -43,37 +43,66 @@ class OrdersController
   end
 
   def mark_as_delivered(current_user)
-    my_orders = my_undelivered_orders(current_user)
-    order_id = @orders_view.ask_for('completed order id').to_i
-    order = my_orders.find { |order| order.id == order_id }
-    @order_repository.mark_as_delivered(order)
-    my_undelivered_orders(current_user)
+    list_my_undelivered_orders(current_user)
+    index = @orders_view.ask_user_for_index
+    my_orders = @order_repo.my_undelivered_orders(current_user)
+    order = my_orders[index]
+    @order_repo.mark_as_delivered(order)
   end
+
+#  def mark_as_delivered(current_user)
+#    my_orders = my_undelivered_orders(current_user)
+#    order_id = @orders_view.ask_for('completed order id').to_i
+#    order = my_orders.find { |order| order.id == order_id }
+#    @order_repository.mark_as_delivered(order)
+#    my_undelivered_orders(current_user)
+#  end
 
   private
 
   def select_meal
-    meals = @meal_repository.all
+    meals = @meal_repo.all
     @meals_view.display(meals)
-    meal_id = @meals_view.ask_for('meal id').to_i
-    # from our meals array, return the one the user asks for
-    @meal_repository.find(meal_id)
+    index = @orders_view.ask_user_for_index
+    return meals[index]
   end
 
   def select_customer
-    customers = @customer_repository.all
+    customers = @customer_repo.all
     @customers_view.display(customers)
-    customer_id = @customers_view.ask_for('customer id').to_i
-    @customer_repository.find(customer_id)
+    index = @orders_view.ask_user_for_index
+    return customers[index]
   end
 
   def select_employee
-    employees = @employee_repository.all_delivery_guys
+    employees = @employee_repo.all_riders
     @sessions_view.display(employees)
-    employee_id = @sessions_view.ask_for('employee id').to_i
-    # from our meals array, return the one the user asks for
-    @employee_repository.find(employee_id)
+    index = @orders_view.ask_user_for_index
+    return employees[index]
   end
+
+#  def select_meal
+#    meals = @meal_repository.all
+#    @meals_view.display(meals)
+#    meal_id = @meals_view.ask_for('meal id').to_i
+#    # from our meals array, return the one the user asks for
+#    @meal_repository.find(meal_id)
+#  end
+
+#  def select_customer
+#    customers = @customer_repository.all
+#    @customers_view.display(customers)
+#    customer_id = @customers_view.ask_for('customer id').to_i
+#    @customer_repository.find(customer_id)
+#  end
+
+#  def select_employee
+#    employees = @employee_repository.all_delivery_guys
+#    @sessions_view.display(employees)
+#    employee_id = @sessions_view.ask_for('employee id').to_i
+#   # from our meals array, return the one the user asks for
+#    @employee_repository.find(employee_id)
+#  end
 
   def my_undelivered_orders(current_user)
     # with logged in user, return all undelivered orders
