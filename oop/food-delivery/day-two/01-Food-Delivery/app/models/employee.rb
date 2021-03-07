@@ -13,8 +13,8 @@ class Employee
     @role == "manager"
   end
 
-  def delivery_guy?
-    @role == "delivery_guy"
+  def rider?
+    @role == "rider"
   end
 
   # def rider?

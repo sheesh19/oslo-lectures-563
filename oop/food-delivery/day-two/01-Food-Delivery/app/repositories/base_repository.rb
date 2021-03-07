@@ -17,7 +17,7 @@ class BaseRepository
     set_element(id)
   end
 
-  def add(element)
+  def create(element)
     element.id = @next_id
     @elements << element
     @next_id += 1
