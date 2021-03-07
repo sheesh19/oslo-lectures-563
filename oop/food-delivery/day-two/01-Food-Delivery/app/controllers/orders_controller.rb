@@ -43,11 +43,11 @@ class OrdersController
   end
 
   def mark_as_delivered(current_user)
-    list_my_undelivered_orders(current_user)
+    my_undelivered_orders(current_user)
     index = @orders_view.ask_user_for_index
-    my_orders = @order_repo.my_undelivered_orders(current_user)
+    my_orders = @order_repository.my_undelivered_orders(current_user)
     order = my_orders[index]
-    @order_repo.mark_as_delivered(order)
+    @order_repository.mark_as_delivered(order)
   end
 
 #  def mark_as_delivered(current_user)
@@ -61,21 +61,21 @@ class OrdersController
   private
 
   def select_meal
-    meals = @meal_repo.all
+    meals = @meal_repository.all
     @meals_view.display(meals)
     index = @orders_view.ask_user_for_index
     return meals[index]
   end
 
   def select_customer
-    customers = @customer_repo.all
+    customers = @customer_repository.all
     @customers_view.display(customers)
     index = @orders_view.ask_user_for_index
     return customers[index]
   end
 
   def select_employee
-    employees = @employee_repo.all_riders
+    employees = @employee_repository.all_riders
     @sessions_view.display(employees)
     index = @orders_view.ask_user_for_index
     return employees[index]
