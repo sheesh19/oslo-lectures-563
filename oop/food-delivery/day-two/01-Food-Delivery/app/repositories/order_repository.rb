@@ -3,11 +3,11 @@ require "csv"
 
 class OrderRepository
 
-  def initialize(csv_file, meals_controller, customers_controller, sessions_controller)
+  def initialize(csv_file, meal_repository, customer_repository, employee_repository)
     @csv_file = csv_file
-    @meal_repository = meals_controller
-    @employee_repository = sessions_controller
-    @customer_repository = customers_controller
+    @meal_repository = meal_repository
+    @employee_repository = employee_repository
+    @customer_repository = customer_repository
     @orders = []
     @next_id = 1
     load_csv if File.exist?(@csv_file)

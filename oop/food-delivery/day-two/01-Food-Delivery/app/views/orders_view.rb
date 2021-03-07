@@ -4,8 +4,14 @@ class OrdersView < BaseView
 
   def display(orders)
     orders.each_with_index do |order, index|
-      puts "#{index + 1} - #{order.customer.name} #{order.meal.name}"
+      puts "#{index + 1}. #{order.employee.username} must deliver #{order.meal.name} to #{order.customer.name}"
     end
+  end
+
+  def ask_user_for_index
+    puts "Index?"
+    print "> "
+    gets.chomp.to_i - 1
   end
 end
 
