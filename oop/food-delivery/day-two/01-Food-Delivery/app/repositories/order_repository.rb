@@ -1,5 +1,5 @@
-require 'pry'
-require_relative '../models/order'
+require_relative "../models/order"
+require "csv"
 
 class OrderRepository
 
@@ -15,13 +15,14 @@ class OrderRepository
 
   def undelivered_orders
     @orders.reject { |order| order.delivered? }
+    # binding.pry
   end
 
   def my_undelivered_orders(current_user)
     @orders.select { |order| order.delivered? != true && current_user == order.employee }
   end
 
-  def add(order)
+  def create(order)
     order.id = @next_id
     @orders << order
     @next_id += 1

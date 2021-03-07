@@ -16,7 +16,7 @@ class CustomersController
     name = @view.ask_for(:name)
     address = @view.ask_for(:address)
     customer = Customer.new(name: name, address: address)
-    @customer_repository.add(customer)
+    @customer_repository.create(customer)
   end
 
   def edit

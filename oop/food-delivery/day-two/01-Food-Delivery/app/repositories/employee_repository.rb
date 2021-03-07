@@ -11,8 +11,8 @@ class EmployeeRepository
     load_csv if File.exist?(csv_file)
   end
 
-  def all_delivery_guys
-    @employees.select { |employee| employee.role == 'delivery_guy' }
+  def all_riders
+    @employees.select { |employee| employee.role == 'rider' }
   end
 
   def find_by_username(username)
