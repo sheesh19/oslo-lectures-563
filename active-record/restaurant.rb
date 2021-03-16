@@ -30,6 +30,11 @@ Restaurant.where(manager: 'Sheila')
 restaurant = Restaurant.find(1)
 restaurant = Restaurant.find_by(name: 'Hutong')
 
+# UPDATE
+restaurant = Restaurant.find(1)
+restaurant.name = 'Krua Thai'
+restaurant.save
+
 # DELETE
 restaurant = Restaurant.find(1)
 restaurant.destroy
