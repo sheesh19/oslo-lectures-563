@@ -74,3 +74,13 @@ end
 
 
 # p patients
+
+# csv_file = File.join(__dir__, 'patients.csv')
+# room_repo = RoomRepository.new(room_csv_file)
+# pr = PatientRepository.new(csv_file, room_repo)
+
+# p pr
+# patient = Patient.new(name: "Dale")
+# pr.add(patient)
+
+# p pr
