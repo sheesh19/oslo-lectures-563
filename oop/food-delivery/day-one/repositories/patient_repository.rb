@@ -75,12 +75,11 @@ end
 
 # p patients
 
-# csv_file = File.join(__dir__, 'patients.csv')
+
+# csv_path = File.join(__dir__, '../data/patients.csv')
+# room_csv_file = File.join(__dir__, '../data/rooms.csv')
 # room_repo = RoomRepository.new(room_csv_file)
-# pr = PatientRepository.new(csv_file, room_repo)
 
-# p pr
-# patient = Patient.new(name: "Dale")
-# pr.add(patient)
+# pr = PatientRepository.new(csv_path, room_repo)
 
-# p pr
+# p pr.patients
