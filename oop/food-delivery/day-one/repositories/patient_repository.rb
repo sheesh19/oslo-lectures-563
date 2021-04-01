@@ -49,11 +49,14 @@ class PatientRepository
 
       row[:id] = row[:id].to_i
       row[:cured] = (row[:cured] == "true")
-      row[:room] = @room_repository.find(row[:room_id].to_i) # room instance
+#       row[:room] = @room_repository.find(row[:room_id].to_i) # room instance
 
-      # row => { id: 1 name: "Harry", cured: true, room: #<Room:0x444> room_id: "1" }
+#       # row => { id: 1 name: "Harry", cured: true, room: #<Room:0x444> room_id: "1" }
 
-      @patients << Patient.new(row)
+#       @patients << Patient.new(row)
+      patient = Patient.new(row)
+      patient.room = @room_repository.find(row[:room_id].to_i)
+      @patients << patient
     end
     @next_id = @patients.last.id + 1
   end
@@ -83,3 +86,13 @@ end
 # pr = PatientRepository.new(csv_path, room_repo)
 
 # p pr.patients
+
+
+# pr = PatientRepository.new(csv_path, room_repo)
+# ginny = Patient.new(name: "Ginny", cured: false)
+# ginny.room = room_repo.rooms.last
+
+# pr.add(ginny)
+
+# p pr.patients
+
