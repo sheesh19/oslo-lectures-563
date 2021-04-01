@@ -7,12 +7,14 @@ class PatientRepository
     @csv_path = csv_path
     @room_repository = room_repository
     @patients = []
+    @next_id = 1
     load_csv
   end
 
   def add(new_patient)
     # new_patient.id # => nil
-    new_patient.id = next_id
+    new_patient.id = @next_id
+    @next_id += 1
 
     @patients << new_patient
 
@@ -21,10 +23,6 @@ class PatientRepository
   end
 
   private
-
-  def next_id
-    @patients.last.id + 1
-  end
 
   def save_csv
     CSV.open(@csv_path, "wb") do |file|
@@ -38,6 +36,7 @@ class PatientRepository
   end
 
   def load_csv
+    #     de serialise this
     csv_options = { headers: true, header_converters: :symbol }
 
     CSV.foreach(@csv_path, csv_options) do |row|
@@ -56,6 +55,7 @@ class PatientRepository
 
       @patients << Patient.new(row)
     end
+    @next_id = @patients.last.id + 1
   end
 end
 
