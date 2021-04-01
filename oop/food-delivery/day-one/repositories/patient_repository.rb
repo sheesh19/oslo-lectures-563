@@ -64,6 +64,8 @@ end
 # csv_options = { headers: :first_row, header_converters: :symbol }
 # csv_path = File.join(__dir__, '../data/patients.csv')
 
+# room && id? 
+
 # CSV.foreach(csv_path, csv_options) do |row|
 #   row[:id]    = row[:id].to_i          # Convert column to Integer
 #   row[:cured] = row[:cured] == "true"  # Convert column to boolean
