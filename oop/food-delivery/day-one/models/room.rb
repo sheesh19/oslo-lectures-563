@@ -2,6 +2,9 @@ class Room
   attr_reader :number, :patients
   attr_accessor :id
 
+  class CapacityError < StandardError; end
+
+
   def initialize(attrs = {})
     @id = attrs[:id]
     @number = attrs[:number] # integer
