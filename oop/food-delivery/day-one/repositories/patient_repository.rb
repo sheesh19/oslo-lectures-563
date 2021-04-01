@@ -2,6 +2,7 @@ require "csv"
 require_relative "../models/patient"
 
 class PatientRepository
+  #   room_repository to figure out which rooom is which since we only store ids
   def initialize(csv_path, room_repository)
     @csv_path = csv_path
     @room_repository = room_repository
