@@ -2,6 +2,10 @@ class Room
   attr_reader :number, :patients
   attr_accessor :id
 
+  # if we wanted to create a very specific error message for other developers... we could create our own error class   
+  class CapacityError < StandardError; end
+
+
   def initialize(attrs = {})
     @id = attrs[:id]
     @number = attrs[:number] # integer
