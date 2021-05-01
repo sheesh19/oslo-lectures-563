@@ -1,0 +1,13 @@
+<h2><%= @pet.name %> </h2>
+
+<p><%= @pet.species %> </p>
+<p><%= @pet.address %> </p>
+<p><%= @pet.found_on %> </p>
+<p><%= @pet.found_days_ago %> </p>
+
+
+<%= link_to "ALL PETS", pets_path %>
+||
+<%= link_to "EDIT", edit_pet_path(@pet) %>
+||
+<%= link_to "ADOPTED", pet_path(@pet), method: :delete %>

@@ -1,0 +1,11 @@
+<h1>LOST PETS</h1>
+
+<ul>
+  <% @pets.each do |pet| %>
+    <li> <%= pet.name %>
+      <%= link_to pet_path(pet) do %>
+        <i class="fas fa-camera-retro"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
