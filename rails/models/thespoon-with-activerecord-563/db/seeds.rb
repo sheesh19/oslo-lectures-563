@@ -3,5 +3,13 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+  movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+  Character.create(name: 'Luke', movie: movies.first)
+
+
+restaurant = Restaurant.new(
+  name: 'Chickfila',
+  rating: 5
+  )
+
+restaurant.save

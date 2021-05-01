@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- RECAP
 
-Things you may want to cover:
+- TESTING
+rails c
+raise
+rails s
 
-* Ruby version
+- COMMANDS
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:seed
 
-* System dependencies
 
-* Configuration
+- VERB URL, to: CONTROLLER#ACTION
 
-* Database creation
+get "restaurants", to: "restaurants#index"
 
-* Database initialization
+get "restaurants/new", to: "restaurants#new", as: :new_restaurant => GETS US THE FORM
+post "restaurants", to: "restaurants#create"
 
-* How to run the test suite
+get "restaurants/:id", to: "restaurants#show", as: :restaurant
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+get "restaurants/:id/edit", to: "restaurants#edit" => GETS US THE FORM
+patch "restaurants/:id", to: "restaurants#update"
 
-* ...
+delete "restaurants/:id", to: "restaurants#destroy"
+
+
+resources :restaurants
