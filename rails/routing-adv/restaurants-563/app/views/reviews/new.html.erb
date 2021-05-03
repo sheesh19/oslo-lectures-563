@@ -1,0 +1,12 @@
+<%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit %>
+<% end %>
+
+<%# simple_form_for(@review) %>
+<%# <form action="/reviews" method="post"></form>
+
+WE NEED
+
+<%# simple_form_for [@restaurant, @review] %>
+<%# <form action="/restaurants/145/reviews" method="post"></form> %>
