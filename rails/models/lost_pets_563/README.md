@@ -22,3 +22,6 @@ HTTP VERB => CONTROLLER => ACTIVE RECORD METHOD
 5. EDIT || GET => EDIT => .find(id)
 6. EDIT || PATCH => UPDATE => .update(atr)
 7. DELETE || DELETE => DESTROY => .destroy
+
+FONT AWESOME IMPORT
+https://stackoverflow.com/questions/37092384/rails-font-awesome-icons-not-showing-using-font-awesome-rails-gem
