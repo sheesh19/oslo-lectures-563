@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## RECAP
 
-* Ruby version
+> For our restaurants
 
-* System dependencies
+   VERB | CONTROLLER ACTION | ACTIVE RECORD
+1. GET => INDEX => .all
+2. GET => SHOW => .find
+3. GET => NEW => .new
+4. POST => CREATE => .create
+5. GET => EDIT => .find
+6. PATCH => UPDATE => .update
+7. DELETE => DESTROY => .destroy
 
-* Configuration
+resources :restaurants
 
-* Database creation
+VERB "URL", to: "controller#action"
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. get "restaurants", to: "restaurants#index"
+2. in our restaurants controller, `def index; end`
+3. views > restaurants > index.html.erb
