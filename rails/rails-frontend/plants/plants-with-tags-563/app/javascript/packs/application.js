@@ -17,8 +17,17 @@ require("channels")
 
 import { multipleSelect } from "../components/select2";
 import { toggleForm } from "../components/form";
+import { initSweetalert } from '../components/init_sweetalert';
 
 toggleForm();
 multipleSelect();
+
+initSweetalert('#sweet-alert-demo', {
+  title: "A nice alert",
+  text: "This is a great alert, isn't it?",
+  icon: "success"
+}, (value) => {
+  console.log(value);
+});
 
 
